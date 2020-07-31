@@ -1,6 +1,9 @@
 import * as React from "react";
-import Link from "next/link";
 import Head from "next/head";
+
+import Header from "./Header";
+
+import "../styles/styles.global.scss";
 
 type LayoutProps = {
   title?: string;
@@ -22,6 +25,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
           <meta name="description" content={metaDescription} />
         </Head>
       )}
+      <Header />
       {children}
     </div>
   );
