@@ -1,9 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/** END CSS RESET */
+
+$max-width: 1330px;
+$primary: #e63946;
+$secondary: #a8dadc;
+$black: #0f111a;
+$transition: 0.3s all ease;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+$border-radius: 0.5rem;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
 }
 
 a {
@@ -11,6 +147,226 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-top: 1rem;
+}
+
 * {
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+.opensans {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+p,
+a,
+li,
+span,
+a {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+h3,
+h4,
+.h3,
+.h4 {
+  font-size: 1.618rem;
+}
+
+h2,
+.h2 {
+  font-size: 2.618rem;
+}
+
+h1 {
+  font-size: 4.236rem;
+}
+
+.secondary {
+  color: $secondary;
+}
+
+.primary {
+  color: $primary;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.large {
+  font-size: 125%;
+}
+
+.button {
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  font-size: 125%;
+  border-radius: $border-radius;
+  transition: $transition;
+  $box-shadow: $box-shadow;
+  display: inline-block;
+
+  &-primary {
+    color: white;
+    background-color: $primary;
+    border: 0.2rem solid $primary;
+  }
+
+  &-secondary {
+    color: black;
+    background-color: $secondary;
+    border: 0.2rem solid $secondary;
+  }
+
+  &-tertiarylight {
+    border: 0.2rem solid white;
+    color: white;
+  }
+
+  &-tertiarydark {
+    border: 0.2rem solid $black;
+    color: $black;
+  }
+
+  &:hover {
+    transform: translateY(-0.25rem);
+  }
+}
+
+.header {
+  padding: 1.618rem 0;
+  box-shadow: $box-shadow;
+
+  &__grid {
+    max-width: $max-width;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+  }
+
+  &__menu {
+    text-align: right;
+
+    a {
+      padding: 1rem;
+      transition: $transition;
+      font-weight: bold;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__brand {
+    .brand {
+      font-size: 1.618rem;
+      font-weight: bold;
+      transition: $transition;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.homefold {
+  min-height: 85vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url("/columbus-ohio.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+
+  &__wrapper {
+    position: absolute;
+    min-width: 320px;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    text-align: center;
+
+    > * {
+      color: white;
+    }
+
+    .h2 {
+      margin-top: 1.5rem;
+      display: block;
+    }
+  }
+
+  &__buttons {
+    margin-top: 2rem;
+
+    a {
+      & + a {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.homefoldcards {
+  max-width: $max-width;
+  margin: auto;
+  padding: 5rem 0;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+
+    margin-top: 2rem;
+  }
+}
+
+.areacard {
+  &__wrapper {
+    height: 100%;
+    max-width: 100%;
+    margin: auto;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    overflow: hidden;
+    transition: $transition;
+
+    img {
+      max-width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.01) translateY(-0.2rem);
+    }
+  }
+
+  &__copy {
+    padding: 1rem;
+
+    p {
+      margin-top: 0.5rem;
+    }
+
+    span.link {
+      margin-top: 0.75rem;
+      display: block;
+    }
+  }
 }
