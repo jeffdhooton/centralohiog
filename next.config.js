@@ -1,31 +1,32 @@
-const withSass = require("@zeit/next-sass");
+const withSass = require('@zeit/next-sass');
 
 module.exports = withSass({
   cssModules: true,
   cssLoaderOptions: {
-    importLoaders: 2,
+    importLoaders: 2
   },
   webpack: (config) => {
     config.module.rules.forEach((rule) => {
-      if (rule.test && rule.test.toString().includes(".scss")) {
+      if (rule.test && rule.test.toString().includes('.scss')) {
+        // eslint-disable-next-line no-param-reassign
         rule.rules = rule.use.map((useRule) => {
-          if (typeof useRule === "string") {
+          if (typeof useRule === 'string') {
             return { loader: useRule };
           }
 
-          if (useRule.loader === "css-loader") {
+          if (useRule.loader === 'css-loader') {
             return {
               oneOf: [
                 {
-                  test: new RegExp(".global.scss$"),
+                  test: new RegExp('.global.scss$'),
                   loader: useRule.loader,
-                  options: {},
+                  options: {}
                 },
                 {
                   loader: useRule.loader,
-                  options: { modules: true },
-                },
-              ],
+                  options: { modules: true }
+                }
+              ]
             };
           }
 
@@ -37,5 +38,5 @@ module.exports = withSass({
     });
 
     return config;
-  },
+  }
 });
