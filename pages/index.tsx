@@ -1,8 +1,9 @@
-import client from "../services/contentful";
-import Link from "next/link";
+import Link from 'next/link';
 
-import Layout from "../components/Layout";
-import AreaCard from "../components/AreaCard";
+import client from '../services/contentful';
+
+import Layout from '../components/Layout';
+import AreaCard from '../components/AreaCard';
 
 export default function Home(props) {
   return (
@@ -11,7 +12,7 @@ export default function Home(props) {
       metaDescription="Your #1 resource for learning about Central Ohio cities and neighborhoods"
     >
       <div className="homefold">
-        <div className="homefold__wrapper">
+        <div className="homefold__wrapper max-width">
           <h1>Central Ohio Guide</h1>
           <span className="h2 opensans">
             Your #1 Guide to the Central Ohio Area
@@ -26,7 +27,7 @@ export default function Home(props) {
           </div>
         </div>
       </div>
-      <div className="homefoldcards">
+      <div className="homefoldcards max-width">
         <div className="homefoldcards__header">
           <h2>Main Locations in Columbus, Ohio</h2>
           <p className="large">
@@ -42,7 +43,13 @@ export default function Home(props) {
         </div>
         <div className="homefoldcards__grid">
           {props.broadAreas.items.map((item) => {
-            return <AreaCard fields={item.fields} key={item.sys.id}></AreaCard>;
+            return (
+              <AreaCard
+                fields={item.fields}
+                parentArea="columbus"
+                key={item.sys.id}
+              ></AreaCard>
+            );
           })}
         </div>
       </div>
@@ -52,10 +59,15 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const broadAreas = await client.getEntries({
-    content_type: "broadArea",
+    content_type: 'broadArea'
+  });
+
+  // Sort based on title
+  broadAreas.items.sort((a: any, b: any) => {
+    return a.fields.title > b.fields.title ? 1 : -1;
   });
 
   return {
-    props: { broadAreas },
+    props: { broadAreas }
   };
 }
