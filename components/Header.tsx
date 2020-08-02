@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Header() {
   return (
     <header className="header">
-      <div className="header__grid">
+      <div className="header__grid max-width">
         <div className="header__brand">
           <Link href="/">
             <a className="opensans brand">Central Ohio Guide</a>
