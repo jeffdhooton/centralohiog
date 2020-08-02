@@ -1,5 +1,6 @@
-import * as React from "react";
-import Link from "next/link";
+import * as React from 'react';
+import slugify from 'slugify';
+import Link from 'next/link';
 
 type AreaCardFields = {
   title?: string;
@@ -9,6 +10,7 @@ type AreaCardFields = {
 };
 
 type AreaCardProps = {
+  parentArea?: string;
   fields: AreaCardFields;
 };
 
@@ -18,7 +20,7 @@ export default function AreaCard(props: AreaCardProps) {
   return (
     <div className="areacard">
       <div className="areacard__wrapper">
-        <Link href="/">
+        <Link href={`/${props.parentArea}/${slugify(title.toLowerCase())}`}>
           <a>
             <img
               src={featuredImage.fields.file.url}
