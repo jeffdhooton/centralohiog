@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto&display=swap');
 
 html,
 body,
@@ -117,7 +117,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -148,6 +148,11 @@ a {
 }
 
 p {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+p {
   margin-top: 1rem;
 }
 
@@ -160,7 +165,7 @@ h2,
 h3,
 h4,
 .opensans {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
 
@@ -170,7 +175,7 @@ li,
 span,
 a {
   font-size: 1rem;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h3,
@@ -207,6 +212,10 @@ h1 {
 
 .large {
   font-size: 125%;
+}
+
+.white {
+  color: white;
 }
 
 .button {
@@ -299,7 +308,7 @@ h1 {
       rgba(0, 0, 0, 0.65),
       rgba(0, 0, 0, 0.65)
     ),
-    url("/columbus-ohio.jpg");
+    url('/columbus-ohio.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -383,6 +392,74 @@ h1 {
     span.link {
       margin-top: 0.75rem;
       display: block;
+    }
+  }
+}
+
+.columbusfold {
+  min-height: 90vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  &__wrapper {
+    width: 80%;
+    min-width: 320px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    text-align: center;
+  }
+
+  &__buttons {
+    margin-top: 2.5rem;
+
+    a {
+      display: inline-block;
+
+      & + a {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  &__breadcrumbs {
+    p {
+      font-size: 1.618rem;
+
+      a {
+        font-size: inherit;
+        text-decoration: underline;
+        transition: $transition;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+.columbuscontent {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  &__wrapper {
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+
+      li {
+        p {
+          margin: 0;
+        }
+      }
     }
   }
 }
