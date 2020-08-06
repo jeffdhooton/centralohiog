@@ -15,8 +15,6 @@ export default function Columbus(props: any) {
     slug
   } = props.neighborhood.items[0].fields;
 
-  console.log(documentToHtmlString(content));
-
   return (
     <Layout
       title={`${title} - Columbus | Central Ohio Guide`}
